@@ -7,7 +7,7 @@ const myserver = http.createServer((req, res) => {
         return res.end();
 
     const log = `\n ${Date.now()} and ${req.url} is the date of req.`;
-    const myUrl = url.parse(req.url);
+    const myUrl = url.parse(req.url,true);
     console.log(myUrl);
 
     // Append log to the file
@@ -24,6 +24,7 @@ const myserver = http.createServer((req, res) => {
                     break;
                 case "/about":
                     res.end("About Page");
+
                     break;
                 case "/service":
                     res.end("Service Page");
@@ -32,10 +33,10 @@ const myserver = http.createServer((req, res) => {
                     res.end("404 Error Page");
             }
         }, 2000);
-        console.log("sdjkfdjhjkdfhfjkdgjkdfn"); // Delay of 2 seconds
+        console.time("sdjkfdjhjkdfhfjkdgjkdfn"); // Delay of 2 seconds
     });
 
-    console.log("sdjkfdjhjkdfhfjkdgjkdfn");
+    console.time("sdjkfdjhjkdfhfjkdgjkdfn");
 });
 
 myserver.listen(8000, () => {
